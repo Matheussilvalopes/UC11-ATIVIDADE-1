@@ -1,0 +1,23 @@
+package testesenaicursos;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class TesteBuscarrCursos {
+	private WebDriver driver;
+	
+	@Before
+	public void abrirNavegador() {
+		System.setProperty("webdriver.msedgedriver.driver", "C:\\Program Files\\edgedriver\\msedgedriver.exe");
+		driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		}
+	
+	@Test
+	public void testeNavegador() {
+		driver.get("https://www.google.com.br/");
+	}
+
+}

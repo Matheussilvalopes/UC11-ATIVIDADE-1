@@ -1,0 +1,33 @@
+package testesenaicursos;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class TesteBuscarrCursos {
+	private WebDriver driver;
+	
+	@Before
+	public void abrirNavegador() {
+		System.setProperty("webdriver.msedge.driver", "C:\\Program Files\\edgedriver\\msedgedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		driver = new ChromeDriver(options);
+		driver.manage().window().maximize();
+		}
+	
+	@Test
+	public void testeNavegador() {
+		driver.get("https://informatica.sp.senai.br/");
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.findElement(By.id("Busca1_txtFiltro")).sendKeys("Gestão");
+		driver.findElement(By.id("Busca1_btnBusca")).click();
+		
+	}
+
+}

@@ -1,0 +1,52 @@
+// Java Program to Illustrate Run for Edge Driver
+// In Selenium Using Eclipse
+
+// Importing All Necessary Items
+import java.io.*;
+import java.lang.Thread;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+// Class
+public class TesteEdge {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+
+		// Try block as we will be using sleep() method
+		try {
+
+			// String Where Home Page URL Is Stored
+			String baseUrl = "https://www.google.com/";
+
+			// Implementation of SetProperty Method
+			System.setProperty(
+				"webdriver.edge.driver",
+				"test/resources/msedgedriver.exe");
+
+			// Creating new Object driver Of Webdriver
+			WebDriver driver = new EdgeDriver();
+
+			// Calling Home Page by
+			// using Get() Method
+			driver.get(baseUrl);
+
+			// Making output delayed
+			// by 2 seconds
+			Thread.sleep(2000);
+
+			// Closing The Opened Window
+			// using quit() method
+			driver.quit();
+		}
+
+		// Catch block to handle exceptions
+		catch (Exception e) {
+
+			// Display exceptions on the console
+			System.out.println(e);
+		}
+	}
+}
+
